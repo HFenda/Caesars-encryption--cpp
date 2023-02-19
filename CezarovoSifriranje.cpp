@@ -29,7 +29,7 @@ using namespace std;
  */
 int main() {
     string tekst;
-    cout<<"Unesi tekst(malim slovima): ";
+    cout<<"Input text(lowercase letters): ";
     getline(cin,tekst);
 
     int x,brojSlova=0;
@@ -38,7 +38,7 @@ int main() {
         x=tekst[i];
         if(x!=0 && x!=32){
             if (x<97 || x>122) {
-                cout << "[GRESKA] Invalid karakter." << endl;
+                cout << "[ERROR] Invalid character." << endl;
                 system("pause");
                 return 0;
             }
@@ -48,15 +48,15 @@ int main() {
         }
     }
     if (tekst.size()>200){
-        cout<<"[GRESKA] Veliki broj karaktera."<<endl;
+        cout<<"[ERROR] Excessive number of characters."<<endl;
         system("pause");
         return 0;
     }
-    cout<<"Broj slova iznosi: "<<brojSlova<<endl;
+    cout<<"Number of letters: "<<brojSlova<<endl;
 
     int kljucRotacije;
     kljucRotacije=256%brojSlova;
-    cout<<"Kljuc rotacije iznosi: "<<kljucRotacije<<endl;
+    cout<<"Rotation key: "<<kljucRotacije<<endl;
     if (kljucRotacije == 0) {
         for (int i = tekst.size(); i >0; i--) {
             cout << tekst[i - 1];
@@ -64,7 +64,7 @@ int main() {
         cout<<endl;
     }
     else{
-        cout<<"Sifrirani tekse: ";
+        cout<<"Encrypted text: ";
         for (int i = 0; i < tekst.size(); ++i) {
             if (int(tekst[i]+kljucRotacije)>122)
             {
